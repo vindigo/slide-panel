@@ -1,0 +1,65 @@
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import "animate.css";
+@import "button.css";
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  color: #666;
+  background-color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+h1 { 
+  font-size: 4em;
+  font-weight: 800;
+}
+/* helpers */
+.hidden { display: none; }
+
+
+/* main */
+main {
+  background-color: lightcyan;
+  height: 100vh;
+  text-align: center;
+}
+
+.main-content {
+  background-color: lightcoral;
+  height: 90%;
+}
+
+.tray-content {
+  background-color: lightsteelblue;
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  bottom: 10%;
+  z-index: 0;
+  
+}
+
+nav {
+  height: 10%;
+  width: 100%; 
+  background-color: lightgray;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  position: absolute;
+  bottom: 0;
+}
+
+.btn {
+  margin: 0 20px;
+}
+
