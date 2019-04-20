@@ -1,12 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("ready");
-
-
 
   var btnTray1 = document.querySelector('.btn-1');
   var btnTray2 = document.querySelector('.btn-2');
 
-  var allTrays = document.querySelectorAll('.tray')
+  allTrays = document.querySelectorAll('.tray')
   var trayContent1 = document.querySelector('.tray-1');
   var trayContent2 = document.querySelector('.tray-2');
   btnTray1.addEventListener('click', function () {
@@ -28,7 +25,12 @@ function toggleTray(tray) {
 }
 
 function openTray(tray) {
-  console.log(tray);
+  // allTrays.forEach(function (item) {
+  //   if (!item.hasClass('hidden')) {
+  //     closeTray(item);
+  //   }
+
+  // });
   tray.classList.remove('hidden');
   tray.classList.add('slideInUp');
 }
