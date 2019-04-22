@@ -1,12 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
-
   var lastOpenTrayID = null;
-
   var btnHome = document.querySelector('[data-id="btn-home"]');
   var btnControls = document.querySelector('[data-id="btn-controls"]');
+  var mainApp = document.querySelector('#main-app');
 
-  btnHome.addEventListener('click', function (e) {
-    var TRAY_NAME = "tray-home";
+  mainApp.addEventListener('click', function (e) {
+    var targetElem = e.target;
+    var targetID = targetElem.getAttribute('data-id');
+    var targetType = targetElem.getAttribute('data-type');
+
+    if (!targetID) { return; }
+    if (!targetType) { return; }
+    if (targetType == "nav-button") {
+      var trayID = 'tray-' + targetID;
+      handleNavControl(trayID);
+    }
+
+  });
+
+  var handleNavControl = function (targetID) {
+    var TRAY_NAME = targetID;
     var delayMS = closeTray(lastOpenTrayID) || 0;
 
     if (lastOpenTrayID == TRAY_NAME) {
@@ -16,20 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     openTray(TRAY_NAME, delayMS);
     lastOpenTrayID = TRAY_NAME;
-  });
+  };
 
-  btnControls.addEventListener('click', function (e) {
-    var TRAY_NAME = "tray-controls";
-    var delayMS = closeTray(lastOpenTrayID) || 0;
-
-    if (lastOpenTrayID == TRAY_NAME) {
-      lastOpenTrayID = null;
-      return;
-    }
-
-    openTray(TRAY_NAME, delayMS);
-    lastOpenTrayID = TRAY_NAME;
-  });
 });
 
 function openTray(trayID, delayMS) {
