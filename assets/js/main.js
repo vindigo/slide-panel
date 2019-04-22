@@ -1,5 +1,9 @@
+var myCache = {
+  lastOpenTrayID: null
+};
+
 document.addEventListener("DOMContentLoaded", function () {
-  var lastOpenTrayID = null;
+  myCache.lastOpenTrayID = null;
   var mainApp = document.querySelector('#main-app');
 
   mainApp.addEventListener('click', function (e) {
@@ -22,15 +26,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var handleNavControl = function (targetID) {
     var TRAY_NAME = targetID;
-    var delayMS = closeTray(lastOpenTrayID) || 0;
+    var delayMS = closeTray(myCache.lastOpenTrayID) || 0;
 
-    if (lastOpenTrayID == TRAY_NAME) {
-      lastOpenTrayID = null;
+    if (myCache.lastOpenTrayID == TRAY_NAME) {
+      myCache.lastOpenTrayID = null;
       return;
     }
 
     openTray(TRAY_NAME, delayMS);
-    lastOpenTrayID = TRAY_NAME;
+    myCache.lastOpenTrayID = TRAY_NAME;
   };
 
 });
