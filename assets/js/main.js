@@ -1,17 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  var btnTray1 = document.querySelector('.btn-1');
-  var btnTray2 = document.querySelector('.btn-2');
+  var btnHome = document.querySelector('[data-id="btn-home"]');
+  var btnControls = document.querySelector('[data-id="btn-controls"]');
 
   allTrays = document.querySelectorAll('.tray')
-  var trayContent1 = document.querySelector('.tray-1');
-  var trayContent2 = document.querySelector('.tray-2');
-  btnTray1.addEventListener('click', function () {
-    toggleTray(trayContent1);
+  var trayHome = document.querySelector('[data-id="tray-home"]');
+  var trayControls = document.querySelector('[data-id="tray-controls"]');
+  // var controlBar = document.querySelector('nav');
+
+  // controlBar.addEventListener('click', function () {
+  //   toggleTray(trayContent1);
+  // });
+  btnHome.addEventListener('click', function () {
+    alert("home");
+    // toggleTray(trayContent1);
   });
 
-  btnTray2.addEventListener('click', function () {
-    toggleTray(trayContent2);
+  btnControls.addEventListener('click', function () {
+    alert("controls");
+    // toggleTray(trayContent2);
   });
 
 });
