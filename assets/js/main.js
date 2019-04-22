@@ -1,52 +1,48 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+  var lastOpenTrayID = null;
+
   var btnHome = document.querySelector('[data-id="btn-home"]');
   var btnControls = document.querySelector('[data-id="btn-controls"]');
+  // var trayControls = document.querySelector('[data-id="tray-controls"]');
 
-  allTrays = document.querySelectorAll('.tray')
-  var trayHome = document.querySelector('[data-id="tray-home"]');
-  var trayControls = document.querySelector('[data-id="tray-controls"]');
-  // var controlBar = document.querySelector('nav');
-
-  // controlBar.addEventListener('click', function () {
-  //   toggleTray(trayContent1);
-  // });
   btnHome.addEventListener('click', function () {
-    alert("home");
-    // toggleTray(trayContent1);
+    closeTray(lastOpenTrayID);
+    openTray("tray-home");
+    lastOpenTrayID = "tray-home";
   });
 
   btnControls.addEventListener('click', function () {
-    alert("controls");
-    // toggleTray(trayContent2);
+    closeTray(lastOpenTrayID);
+    openTray("tray-controls");
+    lastOpenTrayID = "tray-controls";
   });
 
 });
 
-function toggleTray(tray) {
-  if (tray.classList.contains('hidden')) {
-    openTray(tray);
-  } else {
-    closeTray(tray);
-  }
+function openTray(trayID) {
+  if (!trayID) { return };
+
+  var trayElem = document.querySelector('[data-id="' + trayID + '"]');
+
+  if (!trayElem) { return };
+
+  trayElem.classList.remove('hidden');
+  trayElem.classList.add('slideInUp');
 }
 
-function openTray(tray) {
-  // allTrays.forEach(function (item) {
-  //   if (!item.hasClass('hidden')) {
-  //     closeTray(item);
-  //   }
+function closeTray(trayID) {
+  if (!trayID) { return };
 
-  // });
-  tray.classList.remove('hidden');
-  tray.classList.add('slideInUp');
-}
+  var trayElem = document.querySelector('[data-id="' + trayID + '"]');
 
-function closeTray(tray) {
-  tray.classList.remove('slideInUp');
-  tray.classList.add('slideOutDown');
+  if (!trayElem) { return };
+
+  trayElem.classList.remove('slideInUp');
+  trayElem.classList.add('slideOutDown');
+
   setTimeout(function () {
-    tray.classList.add('hidden');
-    tray.classList.remove('slideOutDown');
-  }, 1000);
+    trayElem.classList.add('hidden');
+    trayElem.classList.remove('slideOutDown');
+  }, 1100);
 }
