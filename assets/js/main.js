@@ -7,12 +7,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   btnHome.addEventListener('click', function (e) {
     var delayMS = closeTray(lastOpenTrayID) || 0;
+
+    if (lastOpenTrayID == "tray-home") {
+      lastOpenTrayID = null;
+      return;
+    }
+
     openTray("tray-home", delayMS);
     lastOpenTrayID = "tray-home";
   });
 
   btnControls.addEventListener('click', function (e) {
     var delayMS = closeTray(lastOpenTrayID) || 0;
+
+    if (lastOpenTrayID == "tray-controls") {
+      lastOpenTrayID = null;
+      return;
+    }
+
     openTray("tray-controls", delayMS);
     lastOpenTrayID = "tray-controls";
   });
