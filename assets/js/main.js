@@ -4,15 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var btnHome = document.querySelector('[data-id="btn-home"]');
   var btnControls = document.querySelector('[data-id="btn-controls"]');
-  // var trayControls = document.querySelector('[data-id="tray-controls"]');
 
-  btnHome.addEventListener('click', function () {
+  btnHome.addEventListener('click', function (e) {
     var delayMS = closeTray(lastOpenTrayID) || 0;
     openTray("tray-home", delayMS);
     lastOpenTrayID = "tray-home";
   });
 
-  btnControls.addEventListener('click', function () {
+  btnControls.addEventListener('click', function (e) {
     var delayMS = closeTray(lastOpenTrayID) || 0;
     openTray("tray-controls", delayMS);
     lastOpenTrayID = "tray-controls";
