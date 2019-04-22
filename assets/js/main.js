@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   var lastOpenTrayID = null;
-  var btnHome = document.querySelector('[data-id="btn-home"]');
-  var btnControls = document.querySelector('[data-id="btn-controls"]');
   var mainApp = document.querySelector('#main-app');
 
   mainApp.addEventListener('click', function (e) {
