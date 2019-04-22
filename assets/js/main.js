@@ -6,27 +6,29 @@ document.addEventListener("DOMContentLoaded", function () {
   var btnControls = document.querySelector('[data-id="btn-controls"]');
 
   btnHome.addEventListener('click', function (e) {
+    var TRAY_NAME = "tray-home";
     var delayMS = closeTray(lastOpenTrayID) || 0;
 
-    if (lastOpenTrayID == "tray-home") {
+    if (lastOpenTrayID == TRAY_NAME) {
       lastOpenTrayID = null;
       return;
     }
 
-    openTray("tray-home", delayMS);
-    lastOpenTrayID = "tray-home";
+    openTray(TRAY_NAME, delayMS);
+    lastOpenTrayID = TRAY_NAME;
   });
 
   btnControls.addEventListener('click', function (e) {
+    var TRAY_NAME = "tray-controls";
     var delayMS = closeTray(lastOpenTrayID) || 0;
 
-    if (lastOpenTrayID == "tray-controls") {
+    if (lastOpenTrayID == TRAY_NAME) {
       lastOpenTrayID = null;
       return;
     }
 
-    openTray("tray-controls", delayMS);
-    lastOpenTrayID = "tray-controls";
+    openTray(TRAY_NAME, delayMS);
+    lastOpenTrayID = TRAY_NAME;
   });
 });
 
