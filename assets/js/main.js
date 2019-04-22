@@ -11,12 +11,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!targetID) { return; }
     if (!targetType) { return; }
-    if (targetType == "nav-button") {
-      var trayID = 'tray-' + targetID;
-      handleNavControl(trayID);
-    }
+
+    processTypes(targetID, targetType);
 
   });
+
+  var processTypes = function (targetID, targetType) {
+    switch (targetType) {
+      case 'nav-button': handleNavControl('tray-' + targetID); break;
+    }
+  }
 
   var handleNavControl = function (targetID) {
     var TRAY_NAME = targetID;
@@ -33,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-function openTray(trayID, delayMS) {
+var openTray = function (trayID, delayMS) {
   if (!trayID) { return };
 
   var trayElem = document.querySelector('[data-id="' + trayID + '"]');
@@ -46,7 +50,7 @@ function openTray(trayID, delayMS) {
   }, delayMS);
 }
 
-function closeTray(trayID) {
+var closeTray = function (trayID) {
   var DELAY_MS = 1100;
   if (!trayID) { return };
 
